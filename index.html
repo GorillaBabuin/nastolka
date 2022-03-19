@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+	    .big{
+	    	display: flex;
+	    }
+		.box{
+      background-image: url(netu.png);
+      background-size: 100% 100%;
+			height: 100px;
+			width: 100px;
+			border: solid;
+			margin-top: 150px;
+			margin-left: 5px;
+			font-family: arial;
+      transition: 1s;
+		}
+		.btn{
+			height: 100px;
+			width: 100px;
+			border: solid;
+			position: absolute;
+			text-align: center;
+			font-family: arial;
+      background-image: url(d6.png);
+      background-size: 100% 100%;
+		}
+		.dice{
+			height: 50px;
+			width: 50px;
+			border: solid;
+			position: absolute;
+			text-align: center;
+			font-family: arial;
+			margin-left: 100px;
+      background-image: url(netu.png);
+		}
+    .point{
+      height: 50px;
+      width: 50px;
+      border: solid;
+      position: absolute;
+      text-align: center;
+      font-family: arial;
+      margin-left: 150px;
+      background-image: url(netu.png);
+    }
+    .all{
+    }
+    .win{
+      background-image: url(win.jpg);
+      height: 1000px;
+      width: 2000px;
+      display: none;
+      position: absolute;
+      background-size: 100% 100%;
+    }
+	</style>
+</head>
+<body style="background-image: url(bg.png);">
+  <div class="all">
+  <div class="point"><h2 class="points">0</h2></div>
+	<div class="btn">
+	</div>
+	<div class="dice">
+		<h2 class="dicenumber"></h2>
+	</div>
+  <div class="big">
+    <div class="box">
+
+    </div>
+    <div class="box">
+
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div style="background-image: url(monster.png);" class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div style="background-image: url(monster.png);" class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div style="background-image: url(monster.png);" class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+  </div>
+
+  <div class="big">
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div style="background-image: url(monster.png); " class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div style="background-image: url(monster.png);" class="box">
+    
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div style="background-image: url(monster.png);" class="box">
+    	
+    </div>
+    <div class="box">
+    	
+    </div>
+    <div style=" background-image: url(r.png); " class="box">
+    	
+    </div>
+    <div style=" background-image: url(crawlspace.png);" class="box">
+    	
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+    <div style="display: none;" class="box">
+
+    </div>
+  </div>
+  </div>
+  <div class="win"></div>
+<script type="text/javascript">
+    let btn = document.querySelector(".btn");
+    let plus = document.querySelector(".plus");
+    let box = document.querySelectorAll('.box')
+    let shag = 0
+    let points = 0
+
+
+    box[shag].style.backgroundImage = "url(isaac.png)"
+
+
+     btn.onclick = function(){
+     box[shag].style.backgroundImage = "url(netu.png)"
+     let random = Math.random() * 6
+     let round = Math.round(random)
+     shag = shag + round
+     points = points + 10
+     document.querySelector('.dicenumber').innerHTML = round;
+     document.querySelector('.points').innerHTML = points;
+     box[shag].style.backgroundImage = "url(isaac.png)"
+
+     if(shag==5){
+       box[shag].style.backgroundImage = "url(monster.png)"
+       shag = shag - 2
+       points = points - 10
+       document.querySelector('.points').innerHTML = points;
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+     if(shag==10){
+       box[shag].style.backgroundImage = "url(monster.png)"
+       shag = shag - 2
+       points = points - 10
+       document.querySelector('.points').innerHTML = points;
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+     if(shag==15){
+       box[shag].style.backgroundImage = "url(monster.png)"
+       shag = shag - 2
+       poinst = points - 10
+       document.querySelector('.points').innerHTML = points;
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+     if(shag==20){
+       box[shag].style.backgroundImage = "url(monster.png)"
+       shag = shag - 2
+       points = points - 10
+       document.querySelector('.points').innerHTML = points;
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+     if(shag==25){
+       box[shag].style.backgroundImage = "url(monster.png)"
+       shag = shag - 2
+       points = points - 10
+       document.querySelector('.points').innerHTML = points;
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+     if(shag==30){
+       box[shag].style.backgroundImage = "url(monster.png)"
+       shag = shag - 2
+       points = points - 10
+       document.querySelector('.points').innerHTML = points;
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+     if(shag==32){
+       box[shag].style.backgroundImage = "url(r.png)"
+       shag = 0
+       points = points - points
+       document.querySelector('.points').innerHTML = points;
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+     if(shag>=33){
+       box[shag].style.backgroundImage = "url(crawlspace.png)"
+       document.querySelector('.win').style.display = 'block';
+       document.querySelector('.all').style.display = 'none';
+       box[shag].style.backgroundImage = "url(isaac.png)"
+     }
+    }
+    
+
+
+</script>
+</body>
+</html>
